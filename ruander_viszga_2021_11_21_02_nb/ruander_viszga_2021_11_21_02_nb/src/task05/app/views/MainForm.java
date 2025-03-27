@@ -49,7 +49,7 @@ public class MainForm extends javax.swing.JFrame {
         tbMotors = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("BEST MOTOR CYCLE 4U");
+        setTitle("Motorkerékpárok");
 
         tbMotors.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

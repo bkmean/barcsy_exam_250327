@@ -41,7 +41,7 @@ public class MainForm extends javax.swing.JFrame {
         tableModelMotor = new TableModelMotors(motors1, header);
         tbMotors.setModel(tableModelMotor);
     }
-
+    
     private void otherMotors() {
         motors1 = new ArrayList<>();
         MotorCycleCategory cat1 = new MotorCycleCategory(1, "Bagger");

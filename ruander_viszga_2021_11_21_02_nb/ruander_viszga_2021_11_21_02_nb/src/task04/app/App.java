@@ -88,7 +88,7 @@ public class App {
         result = getSaleFilteredFootWears(result, isSale);
         result = getHighestPriceFootWears(result);
         String saleText = result.get(0).getIsSaleText().toUpperCase();
-        System.out.println(saleText);
+        System.out.println(saleText+ " legmagasabb árú termék/ek listája:");
         displayFootwears(result);
     }
 

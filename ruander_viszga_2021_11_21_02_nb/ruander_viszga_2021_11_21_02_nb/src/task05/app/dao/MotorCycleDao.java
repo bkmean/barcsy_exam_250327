@@ -21,7 +21,7 @@ public class MotorCycleDao {
     private String[] header;
 
     public List<MotorCycle> getAll() {
-        motors = new ArrayList<MotorCycle>();
+        motors = new ArrayList<>();
         // ToDo: folytatás - Hiányzó kódrészlet
         String sql = "SELECT * FROM motor_cycle";
         try {

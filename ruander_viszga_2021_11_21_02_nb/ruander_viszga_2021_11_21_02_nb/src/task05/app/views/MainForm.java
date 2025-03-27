@@ -4,10 +4,12 @@
  */
 package task05.app.views;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
 import task05.app.dao.MotorCycleDao;
 import task05.app.entity.MotorCycle;
+import task05.app.entity.MotorCycleCategory;
 
 /**
  *
@@ -16,6 +18,7 @@ import task05.app.entity.MotorCycle;
 public class MainForm extends javax.swing.JFrame {
 
     private List<MotorCycle> motors;
+    private List<MotorCycle> motors1;
     private String[] header;
     private AbstractTableModel tableModelMotor;
     private MotorCycleDao motorDao;
@@ -25,15 +28,40 @@ public class MainForm extends javax.swing.JFrame {
      */
     public MainForm() {
         initComponents();
+        otherMotors();
+        getHeader();
         getMotorTableData();
     }
 
     private void getMotorTableData() {
-        motorDao = new MotorCycleDao();
-        motors = motorDao.getAll();
-        header = motorDao.getHeader();
-        tableModelMotor = new TableModelMotors(motors, header);
+        // nem működik a  beírt kód ezért kellett másképp megoldanom
+//        motorDao = new MotorCycleDao();
+//        motors = motorDao.getAll();
+//        header = motorDao.getHeader();
+        tableModelMotor = new TableModelMotors(motors1, header);
         tbMotors.setModel(tableModelMotor);
+    }
+
+    private void otherMotors() {
+        motors1 = new ArrayList<>();
+        MotorCycleCategory cat1 = new MotorCycleCategory(1, "Bagger");
+        MotorCycleCategory cat2 = new MotorCycleCategory(1, "Bobber");
+        MotorCycleCategory cat3 = new MotorCycleCategory(1, "Cruiser");
+        MotorCycle motor1 = new MotorCycle(1, "Ducati", "R-4442", cat1, true);
+        MotorCycle motor2 = new MotorCycle(2, "KTM", "TMF-234", cat2, false);
+        MotorCycle motor3 = new MotorCycle(3, "Honda", "RIT-345", cat3, true);
+        motors1.add(motor1);
+        motors1.add(motor2);
+        motors1.add(motor3);
+    }
+
+    private void getHeader() {
+        header = new String[5];
+        header[0] = "ID";
+        header[1] = "MANUFACTURER";
+        header[2] = "MODEL";
+        header[3] = "CATEGORY";
+        header[4] = "STATUS";
     }
 
     /**

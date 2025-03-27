@@ -18,7 +18,7 @@ public class Database {
             connection = DriverManager.getConnection(
                     connectionStringWithSSL,
                     "root",
-                    "");
+                    "Ruander2000");
         } catch (SQLException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();

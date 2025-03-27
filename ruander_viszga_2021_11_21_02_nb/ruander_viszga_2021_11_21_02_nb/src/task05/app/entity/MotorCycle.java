@@ -40,6 +40,32 @@ public class MotorCycle {
         return status ? "aktív" : "inaktív";
     }
 
+    public String getName() {
+        return category.getName();
+    }
+
+    public Object getProperty(int index) {
+        Object obj = null;
+        switch (index) {
+            case 0:
+                obj = id;
+                break;
+            case 1:
+                obj = manufacturer;
+                break;
+            case 2:
+                obj = model;
+                break;
+            case 3:
+                obj = getName();
+                break;
+            case 4:
+                obj = getStatusText();
+                break;
+        }
+        return obj;
+    }
+
     @Override
     public String toString() {
         return "MotorCycle [id=" + id + ", manufacturer=" + manufacturer + ", model=" + model + ", category=" + category

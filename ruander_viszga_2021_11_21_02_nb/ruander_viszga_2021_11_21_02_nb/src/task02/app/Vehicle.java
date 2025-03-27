@@ -20,4 +20,10 @@ abstract public class Vehicle {
 
     public abstract void start();
     public abstract void stop();
+
+    @Override
+    public String toString() {
+        return "brand=" + brand + ", yearManufactured=" + yearManufactured ;
+    }
+    
 }

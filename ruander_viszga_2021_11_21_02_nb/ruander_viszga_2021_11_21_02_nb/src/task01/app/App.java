@@ -21,6 +21,10 @@ public class App {
         // TODO Auto-generated method stub
         Employee employee = getEmployeeInput();
         displayEmployeeData(employee);
+        Employee employee1 = getEmployeeInput();
+        displayEmployeeData(employee1);
+        Employee employee2 = getEmployeeInput();
+        displayEmployeeData(employee2);
     }
 
     private static Employee getEmployeeInput() {

@@ -2,12 +2,10 @@ package task04.app;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -30,6 +28,8 @@ public class App {
     public static void main(String[] args) {
         List<FootWear> shoes = getFootWearsFromFile(PATH);
         displayFootwears(shoes);
+        boolean isSale = true;
+        displayHighestPriceFootWears(shoes, isSale);
 
     }
 
@@ -78,6 +78,55 @@ public class App {
             isSale = true;
         }
         return isSale;
+    }
+
+    private static void displayHighestPriceFootWears(List<FootWear> shoes, boolean isSale) {
+        List<FootWear> result = new ArrayList<>();
+        for (FootWear shoe : shoes) {
+            result.add(shoe);
+        }
+        result = getSaleFilteredFootWears(result, isSale);
+        result = getHighestPriceFootWears(result);
+        String saleText = result.get(0).getIsSaleText().toUpperCase();
+        System.out.println(saleText);
+        displayFootwears(result);
+    }
+
+    private static List<FootWear> getSaleFilteredFootWears(List<FootWear> shoes, boolean sale) {
+        int size = shoes.size();
+        for (int i = 0; i < size; i++) {
+
+            if (!shoes.get(i).isSale().equals(sale)) {
+                shoes.remove(i);
+                size -= 1;
+                i -= 1;
+            }
+        }
+        return shoes;
+    }
+
+    private static List<FootWear> getHighestPriceFootWears(List<FootWear> shoes) {
+        FootWear mostExpensive = shoes.get(0);
+        for (FootWear shoe : shoes) {
+            if (shoe.getNetPrice() > mostExpensive.getNetPrice()) {
+                mostExpensive = shoe;
+            }
+        }
+        shoes = mostExpensivesFootWears(shoes, mostExpensive);
+        return shoes;
+    }
+
+    private static List<FootWear> mostExpensivesFootWears(List<FootWear> shoes, FootWear mostExpensive) {
+        int size = shoes.size();
+        for (int i = 0; i < size; i++) {
+            if (!shoes.get(i).getNetPrice().equals(mostExpensive.getNetPrice())) {
+                shoes.remove(i);
+                size -= 1;
+                i -= 1;
+            }
+        }
+        return shoes;
+
     }
 
 }

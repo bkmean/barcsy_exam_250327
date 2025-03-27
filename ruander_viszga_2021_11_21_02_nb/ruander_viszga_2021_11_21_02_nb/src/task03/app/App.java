@@ -19,6 +19,5 @@ public class App {
         System.out.println("A rendelés azonosítója: " 
                 + billCust1 + ", teljes összege: " 
                 + order1.getTotalCost() + " Ft");
-
     }
 }

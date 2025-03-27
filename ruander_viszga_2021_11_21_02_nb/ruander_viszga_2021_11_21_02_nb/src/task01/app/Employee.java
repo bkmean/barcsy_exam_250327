@@ -36,7 +36,7 @@ public class Employee {
 	}
 
 	public String getStatusText() {
-		return status ? "inaktív" :"aktív";
+		return status ? "aktív" :"inaktív";
 	}
 	
 	@Override
@@ -44,4 +44,9 @@ public class Employee {
 		return "User [firstName=" + firstName + ", lastName=" + lastName + ", userName=" + userName + ", dateOfBirth="
 				+ dateOfBirth + "]";
 	}
+        
+        public int getAge(){
+            return LocalDate.now().compareTo(dateOfBirth);
+            
+        }
 }

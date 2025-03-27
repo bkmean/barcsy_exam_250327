@@ -32,6 +32,6 @@ public class Car extends Vehicle {
     }
     
     public Boolean isOld() {
-    	return LocalDate.now().getYear() - this.getYearManufactured() > 10 ? false: true;
+    	return LocalDate.now().getYear() - this.getYearManufactured() > 10 ? true: false;
     }
 }

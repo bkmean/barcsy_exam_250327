@@ -44,7 +44,7 @@ public class FootWear {
 	
 	public String getIsSaleText() {
 		String result = "nem akciós";
-		if (!this.sale) {
+		if (this.sale) {
 			result = "akciós";
 		}
 		return result;
